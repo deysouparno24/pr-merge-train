@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   stats:
+    if: github.event.label.name == 'stats-check'
     runs-on: ubuntu-latest
     steps:
       - name: Run pull request stats
