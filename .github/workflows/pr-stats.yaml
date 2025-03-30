@@ -9,10 +9,12 @@ permissions:
 
 jobs:
   stats:
+    if: github.event.label.name == 'stats-check'
     runs-on: ubuntu-latest
     steps:
       - name: Run pull request stats
         uses: flowwer-dev/pull-request-stats@master
-        with:
+        with: 
+          token: ${{ secrets.SECRET_GIT_TOKEN }}
           period: 60
           exclude: sos-core-user
